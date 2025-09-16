@@ -18,20 +18,19 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-semibold text-foreground">Услуги</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Технический аудит</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Контентная оптимизация</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Внешняя оптимизация</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Аналитика</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Технический аудит</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Контентная оптимизация</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Внешняя оптимизация</a></li>
+              <li><a href="#services" className="hover:text-primary transition-colors">Аналитика</a></li>
             </ul>
           </div>
 
           <div className="space-y-4">
             <h3 className="font-semibold text-foreground">Компания</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">О нас</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Кейсы</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Блог</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Карьера</a></li>
+              <li><a href="#about" className="hover:text-primary transition-colors">О нас</a></li>
+              <li><a href="/cases" className="hover:text-primary transition-colors">Кейсы</a></li>
+              <li><a href="#contact" className="hover:text-primary transition-colors">Контакты</a></li>
             </ul>
           </div>
 
@@ -50,8 +49,7 @@ const Footer = () => {
             © 2024 SEO Optimize. Все права защищены.
           </p>
           <div className="flex space-x-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors">Политика конфиденциальности</a>
-            <a href="#" className="hover:text-primary transition-colors">Пользовательское соглашение</a>
+            <a href="/privacy" className="hover:text-primary transition-colors">Политика конфиденциальности</a>
           </div>
         </div>
       </div>

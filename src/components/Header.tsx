@@ -13,16 +13,16 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href="/#services" className="text-muted-foreground hover:text-foreground transition-colors">
               Услуги
             </a>
-            <a href="#cases" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href="/cases" className="text-muted-foreground hover:text-foreground transition-colors">
               Кейсы
             </a>
-            <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href="/#about" className="text-muted-foreground hover:text-foreground transition-colors">
               О нас
             </a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
               Контакты
             </a>
           </nav>
