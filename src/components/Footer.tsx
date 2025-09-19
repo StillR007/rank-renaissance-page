@@ -37,9 +37,16 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-semibold text-foreground">Контакты</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li>+7 (495) 123-45-67</li>
-              <li>info@seo-optimize.ru</li>
-              <li>Москва, ул. Примерная, 123</li>
+              <li>
+                <a href="tel:+79994992107" className="hover:text-primary transition-colors">
+                  +7 (999) 499-21-07
+                </a>
+              </li>
+              <li>
+                <a href="mailto:OMarkinaRabota@yandex.ru" className="hover:text-primary transition-colors">
+                  OMarkinaRabota@yandex.ru
+                </a>
+              </li>
             </ul>
           </div>
         </div>

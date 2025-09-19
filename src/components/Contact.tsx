@@ -11,8 +11,8 @@ const Contact = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-                Получите бесплатный 
-                <span className="text-gradient"> SEO-аудит</span>
+                Получите бесплатную 
+                <span className="text-gradient"> консультацию</span>
               </h2>
               <p className="text-xl text-muted-foreground">
                 Узнайте, как можно улучшить позиции вашего сайта в поисковых системах
@@ -74,11 +74,11 @@ const Contact = () => {
                   type="submit" 
                   className="w-full hero-gradient text-primary-foreground hover:opacity-90 transition-opacity text-lg py-3"
                 >
-                  Получить бесплатный аудит
+                  Получить бесплатную консультацию
                 </Button>
 
                 <p className="text-xs text-muted-foreground text-center">
-                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                  Нажимая кнопку, вы соглашаетесь с <a href="/privacy" className="text-primary hover:underline transition-all duration-300 hover:text-primary/80">политикой конфиденциальности</a>
                 </p>
               </form>
             </CardContent>
