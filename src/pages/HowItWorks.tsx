@@ -1,9 +1,16 @@
 
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const HowItWorks = () => {
   return (
-    <div className="min-h-screen bg-background pt-20">
-        <div className="container mx-auto px-6 py-20">
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <main className="pt-24 pb-20">
+        <div className="container mx-auto px-6">
+          <Breadcrumbs />
           <div className="text-center space-y-6 mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-foreground">
               Как это <span className="text-gradient">работает</span>
@@ -102,7 +109,10 @@ const HowItWorks = () => {
             </div>
           </div>
         </div>
-      </div>
+      </main>
+
+      <Footer />
+    </div>
   );
 };
 

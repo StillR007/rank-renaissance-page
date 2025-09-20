@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import CaseModal from "@/components/CaseModal";
 
 // Генерация данных для 140 кейсов
 const generateCases = () => {
@@ -58,6 +60,8 @@ const Cases = () => {
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedIndustry, setSelectedIndustry] = useState("Все");
+  const [selectedCase, setSelectedCase] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const industries = ["Все", ...Array.from(new Set(cases.map(c => c.industry)))];
 
@@ -84,12 +88,23 @@ const Cases = () => {
 
   const hasMore = displayedCases.length < filteredCases.length;
 
+  const openCaseModal = (caseItem: any) => {
+    setSelectedCase(caseItem);
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
+      <main className="pt-24 pb-20">
+        <div className="container mx-auto px-6">
+          <Breadcrumbs />
+        </div>
+      </main>
+      
       {/* Hero секция */}
-      <section className="pt-32 pb-16 bg-secondary/30">
+      <section className="pt-8 pb-16 bg-secondary/30">
         <div className="container mx-auto px-6">
           <div className="text-center space-y-6 mb-12">
             <h1 className="text-4xl lg:text-6xl font-bold text-foreground">
@@ -170,11 +185,19 @@ const Cases = () => {
                       <div className="text-xs text-muted-foreground">Бюджет</div>
                       <div className="font-semibold text-foreground">{caseItem.budget}</div>
                     </div>
-                    <div>
-                      <div className="text-xs text-muted-foreground">Срок</div>
-                      <div className="font-semibold text-foreground">{caseItem.duration}</div>
-                    </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground">Срок</div>
+                    <div className="font-semibold text-foreground">{caseItem.duration}</div>
                   </div>
+                </div>
+
+                <Button 
+                  variant="outline" 
+                  className="w-full border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 mt-4"
+                  onClick={() => openCaseModal(caseItem)}
+                >
+                  Подробнее
+                </Button>
                 </CardContent>
               </Card>
             ))}
@@ -207,6 +230,12 @@ const Cases = () => {
           )}
         </div>
       </section>
+
+      <CaseModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        caseItem={selectedCase}
+      />
 
       <Footer />
     </div>

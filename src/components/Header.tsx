@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
@@ -8,13 +9,25 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import BurgerMenu from "@/components/ui/burger-menu";
+import ConsultationModal from "@/components/ConsultationModal";
 
 const Header = () => {
+  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+
   const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+    if (window.location.pathname === '/') {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.location.href = '/#contact';
     }
+  };
+
+  const openConsultationModal = () => {
+    setIsConsultationModalOpen(true);
   };
 
   return (
@@ -97,14 +110,21 @@ const Header = () => {
           </nav>
 
           <Button 
-            onClick={scrollToContact}
+            onClick={openConsultationModal}
             variant="default" 
-            className="hero-gradient text-primary-foreground hover:opacity-90 transition-opacity"
+            className="hidden md:inline-flex hero-gradient text-primary-foreground hover:opacity-90 transition-opacity"
           >
             Получить бесплатную консультацию
           </Button>
+          
+          <BurgerMenu onConsultationClick={openConsultationModal} />
         </div>
       </div>
+      
+      <ConsultationModal 
+        isOpen={isConsultationModalOpen} 
+        onClose={() => setIsConsultationModalOpen(false)} 
+      />
     </header>
   );
 };
