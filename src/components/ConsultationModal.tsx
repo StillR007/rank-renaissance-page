@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useToast } from "@/hooks/use-toast";
+import SuccessModal from "@/components/SuccessModal";
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -27,7 +27,7 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
     name: "",
     email: ""
   });
-  const { toast } = useToast();
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const validateForm = () => {
     const newErrors = { name: "", email: "" };
@@ -54,10 +54,7 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
     e.preventDefault();
     
     if (validateForm()) {
-      toast({
-        title: "Заявка отправлена!",
-        description: "Мы свяжемся с вами в ближайшее время.",
-      });
+      setIsSuccessModalOpen(true);
       
       // Сброс формы
       setFormData({ name: "", email: "", website: "", message: "" });
@@ -155,6 +152,11 @@ const ConsultationModal = ({ isOpen, onClose }: ConsultationModalProps) => {
           </p>
         </form>
       </DialogContent>
+      
+      <SuccessModal
+        isOpen={isSuccessModalOpen}
+        onClose={() => setIsSuccessModalOpen(false)}
+      />
     </Dialog>
   );
 };
